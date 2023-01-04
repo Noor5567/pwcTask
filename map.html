@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <center>
         <div id='map' style='width: 1000px; height: 500px;'></div>
     </center><br>
@@ -43,13 +42,13 @@
                 beforeSend: function () {
                     $("#spinner").removeAttr('hidden');
                 },
-                success: function (result) {
-                    console.log(result);
+                success: function (response) {
+                    //console.log(response);
                     mapboxgl.accessToken = 'pk.eyJ1Ijoibm9vcmFsZGVlbjEyMyIsImEiOiJjbGNnZ2hxb2kzbzg2M3B0ODRlZDV4bTQ0In0.InOCsR9fT0tucNWazDCezQ';
                     const map = new mapboxgl.Map({
                         container: 'map', // container ID
                         style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
-                        center: [result[0].longitude, result[0].latitude], // starting position [lng, lat]
+                        center: [response[0].longitude, response[0].latitude], // starting position [lng, lat]
                         zoom: 9, // starting zoom
                     });
                 },
